@@ -6,8 +6,9 @@ module.exports = {
         "Content-Type": "application/x-www-form-urlencoded"
     },
     REDIRECT_URI: `http://localhost:3000`,
+    SCOPES: ['identify'],
+    // edit these below
     STATE: "THIS_IS_A_STATE",
     CLIENT_ID: `ID`,
-    CLIENT_SECRET: `SECRET`,
-    SCOPES: ['identify']
+    CLIENT_SECRET: `SECRET`
 }

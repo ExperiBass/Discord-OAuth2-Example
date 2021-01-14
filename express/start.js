@@ -14,11 +14,12 @@ function start() {
             getToken(code).then(async res => {
                 console.log(Chalk.green(`The response has succeeded! The token is below, with this data:\n    access_token: The actual token.\n    token_type: The type of token that was requested.\n    expires_in: The time, in seconds, that the token expires.\n    refresh_token: The token used to get a new access token.\n    scope: The scopes you requested.`))
                 console.log(`Response: ${JSON.stringify(res, null, 2)}`)
-                console.log(Chalk.green(`Now we will revoke the refresh token, so nobody can use it.`))
+                console.log(Chalk.green(`Now we will revoke the refresh token, so nobody can use it or the access token.`))
                 try {
-                    const revocal = await revokeToken(res.refresh_token)
+                    await revokeToken(res.refresh_token)
                 } catch(e) {
                     console.error(e.stack, e)
+                    process.exit(0)
                 }
                 console.log(Chalk.green(`Token revoked! Now the application will exit.`))
                 process.exit(0)
