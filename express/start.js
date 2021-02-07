@@ -9,7 +9,7 @@ function start() {
         res.sendFile(__dirname + "/main.html")
         const code = req.query['code']
         if (code) {
-            console.log(Chalk.green(`Now we are in ${Chalk.yellow(`./${__dirname}/${__filename}`)}. You have successfully authed, and the request to ${Chalk.yellow(REDIRECT_URI)} has succeeded. Now, the app will strip the code from the request and get the token.`))
+            console.log(Chalk.green(`Now we are in ${Chalk.yellow(`${__filename}`)}. You have successfully authed, and the request to ${Chalk.yellow(REDIRECT_URI)} has succeeded. Now, the app will strip the code from the request and get the token.`))
             console.log(`Code received: ${code}`)
             getToken(code).then(async res => {
                 console.log(Chalk.green(`The response has succeeded! The token is below, with this data:\n    access_token: The actual token.\n    token_type: The type of token that was requested.\n    expires_in: The time, in seconds, that the token expires.\n    refresh_token: The token used to get a new access token.\n    scope: The scopes you requested.`))

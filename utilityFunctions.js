@@ -20,7 +20,7 @@ module.exports = {
             'redirect_uri': REDIRECT_URI,
             'scope': 'identify'
         }
-        console.log(Chalk.green(`Now we are in ${Chalk.yellow(`./${__dirname}/${__filename}`)}. Here we send the request to get the end users token, using the client secret to confirm that this, is in fact, you.`))
+        console.log(Chalk.green(`Now we are in ${Chalk.yellow(`${__filename}`)}. Here we send the request to get the end users token, using the client secret to confirm that this, is in fact, you.`))
         console.log(Chalk.redBright(`Don't ever share your client secret! If you accidentally do, you can create a new secret on the application page, revoking the original.`))
         const res = await Axios.post(`${TOKEN_URL}`, querystring.stringify(DATA), {
             headers: HEADERS
